@@ -1,0 +1,1310 @@
+/*-------------------------------  Start Variables ------------------------------- */
+:root {
+  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-caption: "Amatic SC", sans-serif;
+
+  --selection-color: #d85454;
+  --bg1-color: #eeeeee;
+  --bg2-color: #fff;
+  --navbar-color: #fff;
+
+  --title-color: hsla(50, 0%, 20%, 0.788);
+  --text-color: rgba(0, 0, 0, 0.7);
+  --button-color: #ce1212;
+  --buttomHover-color: #e61414;
+
+  --black-color: #000;
+  --white-color: #fff;
+  --caption-color: #37373f;
+
+  --chef-color: #fff;
+  --chefinfo-color: rgba(0, 0, 0, 0.5);
+
+  --contact-color: #f5f5f5;
+  --form-color: rgba(0, 0, 0, 0.2);
+}
+.dark {
+  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-caption: "Amatic SC", sans-serif;
+
+  --selection-color: #926321;
+  --bg1-color: #252525;
+  --bg2-color: #202020;
+
+  --navbar-color: #171717;
+
+  --text-color: rgba(255, 255, 255, 0.7);
+  --button-color: #c17e20;
+  --buttomHover-color: #d78c23;
+
+  --black-color: #fff;
+  --white-color: #000;
+  --caption-color: #fff;
+
+  --chef-color: #171717;
+  --chefinfo-color: rgba(255, 255, 255, 0.5);
+
+  --contact-color: #0d0d0d;
+  --form-color: transparent;
+}
+/*-------------------------------  End Variables ------------------------------- */
+/*-------------------------------  Start Global Rules ------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 30px;
+}
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+#home {
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  width: 86%;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  padding-block: 50px;
+}
+.title span {
+  color: var(--text-color);
+  font-family: var(--font-default);
+}
+.title h2 {
+  color: var(--black-color);
+  font-family: var(--font-caption);
+  font-size: 3rem;
+}
+.title h2 span {
+  color: var(--button-color);
+  font-family: var(--font-caption);
+}
+/*-------------------------------  End Global Rules ------------------------------- */
+/*----------------------------------- Start Customize Scrollbar ----------------------*/
+/* Width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Height */
+::-webkit-scrollbar {
+  height: 100px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #eeeeee8c;
+  box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 100px;
+  box-shadow: inset 0 0 10px #eeeeeeaf;
+}
+/*----------------------------------- End Customize Scrollbar ----------------------*/
+/*----------------------------------- Start Selection ----------------------*/
+::selection {
+  background-color: var(--selection-color);
+  color: var(--white-color);
+}
+/*----------------------------------- End Selection ----------------------*/
+/*-------------------------------  Start Navbar ------------------------------- */
+nav {
+  position: fixed;
+  right: 0%;
+  left: 0%;
+  top: -10px;
+  width: 100%;
+  min-width: 600px;
+  z-index: 999;
+  padding-block: 25px;
+  background-color: var(--navbar-color);
+  box-shadow: 0px 0px 14px 0px #0000001b;
+}
+nav .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .navbar .logo {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: var(--font-default);
+  color: var(--black-color);
+}
+nav .navbar .logo a {
+  color: var(--black-color);
+}
+nav .navbar .logo span {
+  color: var(--button-color);
+}
+nav .navbar .links {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  font-size: 17px;
+  padding-right: 50px;
+}
+nav .navbar .links li a {
+  position: relative;
+  padding-left: 28px;
+  color: var(--text-color);
+  font-family: var(--font-default);
+  font-weight: 500;
+  transition: all 1s;
+}
+nav .navbar .links li a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2.5px;
+  left: 30%;
+  bottom: -7px;
+  background-color: var(--button-color);
+  transition: all 0.5s;
+}
+nav .navbar .links li a:hover {
+  color: var(--black-color);
+}
+nav .navbar .links li a:hover::before {
+  width: 70%;
+}
+body:not(body:has(:target)) li a[href="#home"],
+body:has(#home:target) li a[href="#home"],
+body:has(#chefs:target) li a[href="#chefs"],
+body:has(#gallery:target) li a[href="#gallery"],
+body:has(#contact:target) li a[href="#contact"] {
+  position: relative;
+  color: var(--black-color); /* Change the color of the active link */
+}
+body:not(body:has(:target)) li a[href="#home"]::before,
+body:has(#home:target) li a[href="#home"]::before,
+body:has(#chefs:target) li a[href="#chefs"]::before,
+body:has(#gallery:target) li a[href="#gallery"]::before,
+body:has(#contact:target) li a[href="#contact"]::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 2.5px;
+  left: 30%;
+  bottom: -7px;
+  background-color: var(--button-color);
+  transition: all 0.4s;
+}
+nav .navbar #toggleDark {
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--black-color);
+}
+nav label {
+  font-size: 25px;
+  display: none;
+  cursor: pointer;
+}
+nav input {
+  display: none;
+}
+/*-------------------------------  End Navbar ------------------------------- */
+/*-------------------------------  Start Home ------------------------------- */
+header {
+  background-color: var(--bg1-color);
+  height: 100vh;
+  margin: auto;
+  padding-top: 110px;
+}
+header .container .home-layer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+header .container .home-layer .caption {
+  width: 50%;
+}
+header .container .home-layer .caption .cote {
+  padding: 1rem 0; /* Improved padding for responsiveness */
+}
+header .container .home-layer .caption h2 {
+  font-family: var(--font-caption);
+  text-transform: uppercase;
+  color: var(--caption-color);
+  font-size: 4rem; /* Use 'rem' units for better scalability */
+}
+header .container .home-layer .caption p {
+  color: var(--text-color);
+  width: 75%;
+  line-height: 25px;
+  padding-bottom: 25px;
+  font-family: var(--font-default);
+}
+header .container .home-layer .caption .btn {
+  display: flex;
+  flex-direction: row;
+}
+header .container .home-layer .caption .btn1 {
+  background-color: var(--button-color);
+  padding: 10px 25px;
+  border-radius: 0px 50px 50px 50px;
+  border: 1px solid var(--button-color);
+  font-size: 15px;
+  font-family: var(--font-default);
+  cursor: pointer;
+  margin-right: 65px;
+}
+header .container .home-layer .caption .btn1 a {
+  color: var(--white-color);
+}
+header .container .home-layer .caption .btn1:hover {
+  background-color: var(--buttomHover-color);
+}
+header .container .home-layer .caption .btn2 {
+  padding-top: 7px;
+}
+header .container .home-layer .caption .btn2 button {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-default);
+  cursor: pointer;
+  border: 2px var(--bg1-color) solid;
+  background-color: var(--bg1-color);
+}
+header .container .home-layer .caption .btn2 a {
+  color: var(--black-color);
+  text-decoration: none;
+}
+header .container .home-layer .caption .btn2 a:hover {
+  color: var(--buttomHover-color);
+}
+header .container .home-layer .caption .btn2 i {
+  padding-right: 20px;
+  position: relative;
+  z-index: 10;
+}
+header .container .home-layer .caption .btn2 .icon {
+  position: relative;
+  z-index: 10;
+}
+header .container .home-layer .caption .btn2 .icon::before {
+  content: " ";
+  position: absolute;
+  border-width: 7px;
+  border-color: var(--bg1-color) var(--bg1-color) var(--button-color)
+    var(--button-color);
+  border-style: solid;
+  border-radius: 50%;
+  rotate: 45deg;
+  background-color: var(--white-color);
+  width: 42px;
+  height: 42px;
+  bottom: -85%;
+  right: 75%;
+}
+header .container .home-layer .image {
+  width: 50%;
+}
+header .container .home-layer .image img {
+  width: 80%;
+  margin-left: 100px;
+  margin-top: 25px;
+  filter: drop-shadow(2px 2px 20px #000000a2);
+}
+header .container .home-layer .image img:hover {
+  animation: shake 0.9s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+/*-------------------------------  End Home ------------------------------- */
+/*-------------------------------  Start CHEFS ------------------------------- */
+section #chefs {
+  padding-block: 50px;
+  background-color: var(--bg2-color);
+}
+section #chefs .chefs-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+section #chefs .chef-area {
+  width: 31.5%;
+  position: relative;
+  transition: transform 0.5s;
+  border-radius: 5px;
+}
+section #chefs .chef-area:hover {
+  transform: scale(1.09);
+}
+section #chefs .chefs-area .image-chef {
+  position: relative;
+}
+section #chefs .chefs-area .image-chef img {
+  width: 100%;
+}
+.image-chef svg {
+  position: absolute;
+  width: 100%;
+  top: 80%;
+  left: 0%;
+}
+path {
+  fill: var(--chef-color);
+}
+section #chefs .chef-area {
+  overflow: hidden;
+  background-color: var(--chef-color);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+}
+section #chefs .chefs-area .image-layer {
+  position: absolute;
+  width: 10%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0.2);
+  top: 10%;
+  right: 0%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 1s;
+  transform: translateX(100%);
+}
+section #chefs .chef-area:hover .image-layer {
+  right: 3%;
+  transform: translateX(0%);
+}
+section #chefs .chef-area .image-layer li {
+  padding-block: 10px;
+}
+section #chefs .chef-area .image-layer li a {
+  color: rgba(0, 0, 0, 0.3);
+}
+section #chefs .chef-area .image-layer li a:hover {
+  color: rgb(0, 0, 0, 0.7);
+}
+section #chefs .chef-area .image-info {
+  text-align: center;
+  padding-inline: 20px;
+  padding-bottom: 20px;
+}
+section #chefs .chef-area .image-info h3 {
+  color: var(--black-color);
+  font-family: var(--font-default);
+  line-height: 35px;
+}
+section #chefs .chef-area .image-info h4 {
+  font-family: var(--font-default);
+  color: var(--chefinfo-color);
+  line-height: 35px;
+  font-weight: 400;
+}
+section #chefs .chef-area .image-info p {
+  font-family: var(--font-default);
+  color: var(--chefinfo-color);
+  font-style: italic;
+}
+/*-------------------------------  End CHEFS ------------------------------- */
+/*-------------------------------  Start gallery ------------------------------- */
+section #gallery {
+  padding-block: 50px;
+  background-color: var(--bg1-color);
+}
+section #gallery .gallery-area {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+section #gallery .gallery {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  margin-right: 20px;
+}
+section #gallery .gallery .meal {
+  position: relative;
+  border-bottom: #fff solid 2px;
+  border-top: #fff solid 4px;
+  border-left: #fff solid 4px;
+  border-right: #fff solid 4px;
+  overflow: hidden;
+  background-color: #fff;
+}
+section #gallery .gallery .meal:hover .image {
+  transform: scale(1.2);
+  transition: transform 0.5s 0.3s;
+}
+section #gallery .gallery .meal .image img {
+  width: 100%;
+}
+section #gallery .gallery .meal .layer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s;
+}
+section #gallery .gallery .meal:hover .layer {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+section #gallery .gallery .meal .layer h3 {
+  font-size: 24px;
+  font-family: var(--font-default);
+}
+section #gallery .gallery .meal .layer p {
+  font-family: var(--font-default);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+section #gallery .gallery .Levitation {
+  width: fit-content;
+  margin-top: 20px;
+}
+section #gallery .gallery .chicken,
+section #gallery .gallery .kebab,
+section #gallery .gallery .Frittata {
+  margin-top: 20px;
+}
+/*-------------------------------  End gallery ------------------------------- */
+/*-------------------------------  Start CONTACT ------------------------------- */
+section #contact {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  background-color: var(--bg2-color);
+}
+#contact .container .map iframe {
+  width: 100%;
+  height: 21.875rem;
+  padding-bottom: 30px;
+}
+#contact .container .contact-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#contact .container .contact-info .details {
+  display: flex;
+  background-color: var(--contact-color);
+  width: 49%;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+#contact .container .contact-info .details .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--button-color);
+  border-radius: 50%;
+}
+#contact .container .contact-info .details .icon i {
+  text-align: center;
+  color: var(--white-color);
+}
+#contact .container .contact-info .details-info {
+  font-family: var(--font-default);
+  padding-left: 20px;
+}
+#contact .container .contact-info .details-info h3 {
+  color: var(--chefinfo-color);
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+#contact .container .contact-info .details-info a,
+#contact .container .contact-info .details-info p {
+  color: var(--black-color);
+}
+#contact .container .contact-info .details-info p span {
+  color: var(--black-color);
+  font-weight: bold;
+}
+#contact .container .form-area {
+  background-color: var(--navbar-color);
+  box-shadow: 0px 0px 16px 0px #0000001b;
+  padding: 30px;
+  width: 100%;
+  font-family: var(--font-default);
+  align-items: center;
+  text-align: center;
+}
+#contact .container .form-area .half-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#contact .container .form-area .half-input input {
+  flex: 1;
+  width: 45%;
+}
+#contact .container .form-area .full-input {
+  display: flex;
+  flex-direction: column;
+}
+#contact .container .form-area .full-input input {
+  margin-block: 20px;
+}
+#contact .form-area input:focus {
+  outline: none;
+}
+#contact .form-area textarea:focus {
+  outline: none;
+}
+#contact .form-area textarea:focus,
+#contact .form-area input:focus {
+  border: 2px solid var(--buttomHover-color);
+}
+#contact .form-area input::placeholder {
+  font-size: 13px;
+  font-weight: 200;
+}
+#contact .form-area .full-input textarea,
+#contact .form-area input {
+  padding: 15px;
+  border: var(--form-color) 1px solid;
+}
+#contact .form-area .full-input textarea {
+  padding-bottom: 30px;
+  resize: vertical;
+}
+#contact .form-area .full-input textarea:focus {
+  border: 2px solid var(--buttomHover-color);
+}
+#contact .form-area .full-input textarea::placeholder {
+  font-size: 13px;
+  font-family: var(--font-default);
+}
+#contact .form-area button {
+  margin-top: 30px;
+  padding-inline: 45px;
+  padding-block: 15px;
+  cursor: pointer;
+  color: var(--white-color);
+  border: 2px solid var(--button-color);
+  background-color: var(--button-color);
+  border-radius: 50px;
+  font-family: var(--font-default);
+  font-size: 15px;
+}
+#contact .form-area button:hover {
+  background-color: var(--buttomHover-color);
+}
+/*-------------------------------  End CONTACT ------------------------------- */
+/*-------------------------------  Start Footer ------------------------------- */
+footer {
+  background-image: linear-gradient(#0000005f, #0000005f),
+    url(../images/textured-metal-background.jpg);
+  background-size: cover;
+  color: #fff;
+  font-family: var(--font-default);
+  padding-bottom: 40px;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+footer .container {
+  display: flex;
+  flex-direction: row;
+}
+footer .about {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  margin-top: -30px;
+  width: 25%;
+}
+footer .about .title {
+  display: flex;
+  flex-wrap: nowrap;
+}
+footer .about .title .title-page h3 {
+  color: #fff;
+  font-family: var(--font-default);
+  font-size: 31px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+footer .about .title .title-page h3 span {
+  font-size: 50px;
+  color: var(--button-color);
+}
+footer .about .title .title-image {
+  width: 40px;
+  padding-top: 20px;
+}
+footer .about .title .title-image img {
+  width: 100%;
+}
+footer .about p {
+  margin-top: -40px;
+}
+footer .about .social {
+  padding-top: 20px;
+}
+footer .about .social h3 {
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+footer .about .social ul {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+  border-top: rgba(255, 255, 255, 0.5) solid 2px;
+}
+footer .about .social ul li a {
+  color: #fff;
+}
+
+footer .subscribe {
+  width: 52%;
+  padding-left: 20px;
+  padding-top: 25px;
+  font-family: var(--font-default);
+}
+footer .touch h4,
+footer .subscribe h4 {
+  font-size: 19px;
+}
+footer .subscribe p {
+  padding-block: 10px;
+}
+footer .subscribe .email {
+  display: flex;
+  flex-direction: row;
+}
+footer .subscribe .email input {
+  width: 78%;
+  padding: 10px;
+  margin-right: 5px;
+}
+footer .subscribe .email input:focus {
+  outline: none;
+}
+footer .subscribe .email button {
+  background-color: var(--button-color);
+  padding-inline: 15px;
+  padding-block: 10px;
+  color: var(--white-color);
+  font-size: 15px;
+  border: solid 2px var(--button-color);
+  cursor: pointer;
+}
+footer .subscribe .email button:hover {
+  background-color: var(--buttomHover-color);
+}
+footer .subscribe .quick-Links h4 {
+  padding-block: 10px;
+  font-family: var(--font-default);
+}
+footer .subscribe .quick-Links .links {
+  display: flex;
+}
+footer .subscribe .quick-Links .links ul li {
+  position: relative;
+  width: 280px;
+  margin-right: 50px;
+  padding-block: 5px;
+  margin-left: 20px;
+  transition: all 0.5s;
+}
+footer .subscribe .quick-Links .links ul li a {
+  color: #fff;
+}
+footer .subscribe .quick-Links .links2 ul li a::before {
+  content: " ";
+  position: absolute;
+  background-color: transparent;
+  width: 6px;
+  height: 6px;
+  left: -6%;
+  margin-top: 7px;
+  transform: rotate(45deg);
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fff #fff transparent transparent;
+}
+footer .subscribe .quick-Links .links1 ul li a::after {
+  content: " ";
+  position: absolute;
+  background-color: transparent;
+  width: 6px;
+  height: 6px;
+  left: -6%;
+  margin-top: 7px;
+  transform: rotate(45deg);
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fff #fff transparent transparent;
+}
+footer .subscribe .quick-Links .links ul li:hover {
+  transform: translateX(9px);
+  background-color: #222222;
+}
+
+footer .touch {
+  padding-left: 10px;
+  padding-top: 25px;
+  font-family: var(--font-default);
+}
+footer .touch h4 {
+  padding-bottom: 10px;
+}
+footer .touch ul li {
+  display: flex;
+  flex-direction: row;
+  padding-block: 10px;
+}
+footer .touch ul li i {
+  padding-right: 15px;
+  padding-top: 14px;
+  color: var(--button-color);
+}
+footer .touch ul li a {
+  color: #fff;
+}
+/*-------------------------------  End Footer ------------------------------- */
+
+/*-------------------------------  Start Media-Queries ------------------------------- */
+/* // X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+  .container {
+    width: 90%;
+  }
+}
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  .container {
+    width: 90%;
+  }
+  header {
+    max-height: 600px;
+  }
+  nav .navbar .logo {
+    flex-grow: 0.91;
+  }
+  nav .navbar .links {
+    justify-content: flex-start;
+    padding-top: 50px;
+  }
+  nav label {
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    right: 0%;
+    color: var(--black-color);
+    z-index: 99;
+  }
+  nav ul {
+    width: 100%;
+    position: fixed;
+    background-color: var(--navbar-color);
+    top: 10%;
+    height: 90vh;
+    right: 25%;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    align-items: flex-start;
+  }
+  nav ul li {
+    width: 50%;
+    display: block;
+    line-height: 50px;
+  }
+  #check:checked ~ ul {
+    left: 75%;
+  }
+  #check:checked ~ ul a:hover {
+    color: var(--black-color);
+  }
+  body:not(body:not(:target)) li a[href="#home"]::before,
+  body:not(#home:target) li a[href="#home"]::before,
+  body:not(#chefs:target) li a[href="#chefs"]::before,
+  body:not(#gallery:target) li a[href="#gallery"]::before,
+  body:not(#contact:target) li a[href="#contact"]::before {
+    display: none !important;
+  }
+  body:not(body:has(:target)) li a[href="#home"] {
+    color: var(--text-color);
+  }
+  footer .container {
+    flex-wrap: wrap;
+  }
+  footer .about,
+  footer .touch {
+    width: 45%;
+  }
+  footer .about {
+    order: -2;
+  }
+  footer .touch {
+    order: -1;
+    padding-left: 80px;
+  }
+  footer .subscribe {
+    width: 100%; /* Make the subscribe section full-width on smaller screens */
+    padding-top: 50px;
+  }
+}
+@media (max-width: 990px) {
+  .container {
+    width: 90%;
+  }
+  header {
+    min-height: 1300px;
+  }
+  header .container .home-layer .image {
+    width: 70%;
+  }
+  header .container .home-layer .image img {
+    width: 50%;
+  }
+  header .container .home-layer .caption h1 {
+    font-size: 50px;
+  }
+  header .container .home-layer .caption {
+    margin-bottom: 800px;
+  }
+}
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 900px;
+  }
+  header {
+    flex-direction: column;
+    background-color: var(--bg1-color);
+    /* min-height: 1200px; */
+    margin: auto;
+    max-height: 500px;
+  }
+  header .container .home-layer {
+    flex-direction: column;
+  }
+
+  header .container .home-layer .caption {
+    width: 100%;
+    text-align: center;
+  }
+  header .container .home-layer .caption .btn {
+    justify-content: center;
+  }
+  header .container .home-layer .caption h1 {
+    font-size: 65px;
+  }
+  header .container .home-layer .caption p {
+    width: 85%;
+    text-align: center;
+    padding-left: 50px;
+    justify-content: center;
+  }
+  header .container .home-layer .image {
+    width: 100%;
+    margin-left: -150px;
+    margin-bottom: 25px;
+    justify-content: center;
+  }
+  header .container .home-layer .image img {
+    width: 90%;
+  }
+  section #chefs .chefs-area {
+    flex-wrap: wrap;
+  }
+  section #chefs .chef-area {
+    width: 46%;
+    margin-inline: 8px;
+    margin-block: 20px;
+  }
+  section #gallery {
+    padding-left: 50px;
+  }
+  section #gallery .gallery-area {
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* align-items: center; */
+  }
+  section #gallery .gallery {
+    width: 45%;
+    align-items: start;
+  }
+  section #gallery .gallery1 {
+    padding-bottom: 0;
+    margin-bottom: 0%;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 700px;
+  }
+  section #gallery .gallery3 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  section #gallery .gallery3 .meal {
+    width: 46%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7px;
+    margin-right: 21px;
+  }
+  section #gallery .gallery .burger {
+    margin-top: 0px;
+    padding: 0;
+    align-items: flex-start;
+  }
+  section #gallery .gallery .chicken {
+    margin-top: 15px;
+  }
+  section #gallery .gallery .meal .layer {
+    top: 0%;
+  }
+  section #contact {
+    padding-block: 0px;
+  }
+  #contact .container .contact-info .details {
+    width: 100%;
+  }
+  #contact .container .form-area .half-input input {
+    width: 100%;
+    margin-top: 20px;
+  }
+  #contact .container .form-area .half-input {
+    flex-direction: column;
+  }
+  #contact .container .form-area .full-input input {
+    width: 100%;
+  }
+  #contact .form-area button {
+    margin-top: 20px;
+  }
+  footer .about {
+    width: 50%;
+  }
+  footer .touch {
+    width: 40%;
+  }
+  footer .about {
+    order: -2;
+  }
+  footer .touch {
+    order: -1;
+    padding-left: 80px;
+  }
+  footer .subscribe {
+    width: 90%; /* Make the subscribe section full-width on smaller screens */
+  }
+}
+@media (max-width: 956px) {
+  .container {
+    max-width: 800px;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 680px;
+  }
+}
+@media (max-width: 930px) {
+  .container {
+    max-width: 800px;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 660px;
+  }
+}
+@media (max-width: 898px) {
+  .container {
+    max-width: 800px;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 630px;
+  }
+}
+@media (max-width: 855px) {
+  .container {
+    max-width: 800px;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 600px;
+  }
+}
+@media (max-width: 835px) {
+  .container {
+    max-width: 800px;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 580px;
+  }
+}
+@media (max-width: 820px) {
+  .container {
+    max-width: 800px;
+  }
+  footer {
+    overflow-x: hidden; /* Add this line to remove horizontal scroll */
+  }
+  footer .about {
+    width: 50%;
+  }
+  footer .touch {
+    width: 40%;
+  }
+  footer .about {
+    order: -2;
+  }
+  footer .touch {
+    order: -1;
+    padding-left: 80px;
+  }
+  footer .subscribe {
+    width: 85%; /* Make the subscribe section full-width on smaller screens */
+  }
+}
+@media (max-width: 809px) {
+  .container {
+    max-width: 800px;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 570px;
+  }
+}
+@media (max-width: 790px) {
+  .container {
+    max-width: 800px;
+  }
+  header {
+    min-height: 1000px;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: cover;
+    height: 560px;
+  }
+}
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .container {
+    width: 80%;
+    padding-right: 15px;
+  }
+  header {
+    min-height: 1000px;
+  }
+  header .container .home-layer .caption h2 {
+    font-size: 2.5rem; /* Use 'rem' units for better scalability */
+  }
+  section #chefs .chefs-area {
+    flex-direction: column;
+  }
+  section #chefs .chef-area {
+    width: 100%;
+    margin-block: 20px;
+  }
+  section #gallery .gallery-area {
+    flex-direction: column;
+    padding-right: 35px;
+  }
+  section #gallery .gallery {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  section #gallery .gallery3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  section #gallery .gallery3 .meal {
+    width: 100%;
+  }
+  section #gallery .gallery1 .Levitation img {
+    object-fit: none;
+    height: auto;
+  }
+  footer .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  footer .subscribe {
+    order: -1;
+    padding-left: 0%;
+    margin-left: 0%;
+  }
+  footer .touch {
+    padding-left: 0%;
+    margin-left: 0%;
+  }
+  footer .subscribe,
+  footer .touch,
+  footer .about {
+    width: 100%;
+  }
+  footer .subscribe .email input {
+    width: 70%;
+  }
+  footer .subscribe .quick-Links .links ul {
+    padding-inline: 0;
+    margin-inline: 0;
+    width: 250px;
+  }
+  footer .subscribe .quick-Links .links ul li {
+    width: 180px;
+  }
+  footer .subscribe .quick-Links .links ul li a {
+    margin-left: 10px;
+  }
+}
+/* // X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .container {
+    width: 90%;
+    max-width: 500px;
+  }
+  nav .navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  nav .navbar .logo {
+    flex-grow: 0;
+    flex-shrink: 4;
+    padding-left: 0px;
+    padding-right: 0;
+    margin-inline: 0;
+  }
+  nav label {
+    display: inline-block;
+    color: var(--black-color);
+    padding-right: 5px;
+  }
+  nav .navbar #toggleDark {
+    /* flex-grow: 2; */
+    /* padding-left: 20px; */
+    margin-right: 100px;
+  }
+
+  nav ul {
+    width: 100%;
+    position: fixed;
+    background-color: var(--white-color);
+    top: 10%;
+    height: 90vh;
+    right: 50%;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+  }
+  nav ul li {
+    width: 100%;
+    display: block;
+    line-height: 50px;
+  }
+  #check:checked ~ ul {
+    left: 50%;
+  }
+  header .container .home-layer .caption .btn2 .icon::before {
+    width: 32px;
+    height: 32px;
+    bottom: -85%;
+    right: 77%;
+  }
+  header .container .home-layer .caption .btn1 {
+    margin-right: 25px;
+    font-size: 12px;
+  }
+  header .container .home-layer .caption .btn2 button {
+    font-size: 12px;
+  }
+  footer {
+    overflow-x: hidden; /* Add this line to remove horizontal scroll */
+  }
+  footer .subscribe .email {
+    display: flex;
+    flex-direction: column;
+  }
+  footer .subscribe .email input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  footer .subscribe .quick-Links .links ul {
+    padding-inline: 0;
+    margin-inline: 0;
+    width: 180px;
+  }
+  footer .subscribe .quick-Links .links ul li {
+    width: 150px;
+  }
+  footer .subscribe .quick-Links .links ul li a {
+    margin-left: 10px;
+  }
+  footer .subscribe .quick-Links .links ul li {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
+}
+
+/*-------------------------------  End Media-Queries ------------------------------- */
